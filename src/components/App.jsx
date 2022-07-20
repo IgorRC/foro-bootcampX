@@ -5,17 +5,9 @@ import Home from "../pages/Home";
 import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 import Navbar from "./Navbar";
 import { useState } from "react";
+import Discussion from "./discussion"
 
-function Discussion() {
-  const { id } = useParams();
 
-  return (
-    <Box color={"red"} maxW="920px" margin="auto" fontSize={"20px"}>
-      Hola {id}
-    </Box>
-
-  );
-}
 
 function App() {
 
