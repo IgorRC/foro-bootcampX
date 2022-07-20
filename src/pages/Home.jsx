@@ -9,7 +9,7 @@ function Home() {
         <ul className="comentations">
           <li className="coment"> 
             <a href="discussion/:id">Los Dinosaurios</a>
-            <Box>
+            <Box className="date-user">
               <span className=" nameUser"> by igor </span>
               <span className="date"> 20/07/20222 </span>
               <span className="countComments"> | 20 comments </span>
@@ -17,7 +17,7 @@ function Home() {
           </li>
           <li className="coment"> 
             <a href="discussion/:id">The boys</a>
-            <Box>
+            <Box className="date-user">
               <span className=" nameUser"> by igor </span>
               <span className="date"> 20/07/20222 </span>
               <span className="countComments"> | 20 comments </span>
@@ -25,7 +25,7 @@ function Home() {
           </li>
           <li className="coment"> 
             <a href="discussion/:id">Universe marvel</a>
-            <Box>
+            <Box className="date-user">
               <span className=" nameUser"> by igor </span>
               <span className="date"> 20/07/20222 </span>
               <span className="countComments"> | 20 comments </span>
