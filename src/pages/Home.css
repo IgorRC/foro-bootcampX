@@ -1,0 +1,37 @@
+.containerDiscution {
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(238, 238, 238);
+    padding: 0;
+    line-height: 20px;
+}
+
+.commentations {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+.coment {
+    list-style: none;
+    padding: 0px;
+    margin: 0;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(238, 238, 238);
+    padding: 20px 15px;
+    line-height: 20px;
+}
+
+.coment a {
+    color: rgb(52, 73, 94);
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.date-user {
+    color: rgb(153, 153, 153);
+    font-size: 0.85em;
+}
