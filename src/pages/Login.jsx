@@ -1,19 +1,61 @@
 import { Box, Heading, Input, Button } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
-function Login() {
+function Login({ setUser }) {
+  let navigate = useNavigate();
+  const [userName, setUserName] = useState('')
+  const [email, setEmail] = useState('jjj@hh.com')
+
+  function validacion(event) {
+
+    console.log("hola")
+  }
+  function handleUserName(e) {
+    setUserName(e.currentTarget.value)
+  }
+
+  function handleEmail(e) {
+    setEmail(e.currentTarget.value)
+  }
+
+  function handleSubmit(e) {
+    let user = {
+      propUserName: userName,
+      PropEmail: email
+    }
+
+    e.preventDefault()
+    if (email == "" || userName == "") {
+      alert("llenar datos")
+      return
+    }
+    navigate("/", { replace: true });
+    setUser(user);
+    localStorage.setItem("user", JSON.stringify(user))
+
+
+  }
+
+
   return (
-    <Box background=' white'
+    <Box
+      as="form"
+      background=' white'
       boxShadow=' rgb(0 0 0 / 12%) 0px 2px 5px 0px'
       boxSizing=' border-box'
       borderRadius=' 0.5rem'
       padding=' 5rem 1rem'
       width=' 50%'
       maxWidth=' 360px'
-      margin=' auto' >
+      margin=' auto'
+      onSubmit={handleSubmit}
+    >
       <Heading>Login</Heading>
       <Box margin='2.5rem 1.5rem'>
-        <Input background=' none'
+        <Input
+          value={userName}
+          background=' none'
           border=' 1px solid rgb(234, 234, 234)'
           borderRadius=' 0.25rem'
           boxSizing=' border-box'
@@ -29,7 +71,7 @@ function Login() {
             boxShadow: 'none',
             borderColor: 'rgba(255, 102, 0, 0.5)'
           }}
-
+          onChange={handleUserName}
         />
       </Box>
       <Box margin='2.5rem 1.5rem'>
@@ -49,11 +91,16 @@ function Login() {
             boxShadow: 'none',
             borderColor: 'rgba(255, 102, 0, 0.5)'
           }}
+          value={email}
+          onChange={handleEmail}
+          type="email"
 
         />
       </Box>
 
-      <Button backgroundColor=' rgb(255, 102, 0)'
+      <Button
+        type="submit"
+        backgroundColor=' rgb(255, 102, 0)'
         border=' 1px solid rgb(255, 102, 0)'
         borderRadius=' 0.25rem'
         color=' white'

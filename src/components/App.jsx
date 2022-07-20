@@ -4,6 +4,7 @@ import Login from "../pages/Login";
 import Home from "../pages/Home";
 import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 import Navbar from "./Navbar";
+import { useState } from "react";
 
 function Discussion() {
   const { id } = useParams();
@@ -12,20 +13,23 @@ function Discussion() {
     <Box color={"red"} maxW="920px" margin="auto" fontSize={"20px"}>
       Hola {id}
     </Box>
-    
+
   );
 }
 
 function App() {
+
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
+
   return (
     <ChakraProvider theme={theme}>
       <BrowserRouter>
-        <Navbar />
+        <Navbar user={user} setUser={setUser} />
 
         {/* cosas dinamicas  */}
         <Routes>
           <Route index element={<Home />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login setUser={setUser} />} />
           <Route path="/discussion/:id" element={<Discussion />} />
         </Routes>
       </BrowserRouter>
